@@ -476,6 +476,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        生物智能算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         博客示例贴（你好, 世界!）
       
     </span>
@@ -541,6 +552,36 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    十一月 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -690,6 +731,36 @@
 
               
             
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -735,6 +806,17 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
+        生物智能算法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         博客示例贴（你好, 世界!）
       
     </span>
@@ -763,7 +845,101 @@
       <nav class="md-post__authors md-typeset">
         
           <span class="md-author">
-            <img src="../images/author.png" alt="LogDancer">
+            <img src="../images/author.jpg" alt="小洋芋">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-17 00:00:00+00:00">2025年11月17日</time></li>
+        
+          <li class="md-meta__item">
+            分类于
+            
+              <a href="category/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-meta__link">人工智能</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              需要 2 分钟阅读时间
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2025/11/17/%E7%94%9F%E7%89%A9%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95/">生物智能算法</a></h2>
+<p>蚁群算法</p>
+<p>概念</p>
+<p>蚁群算法（Ant Colony Optimization, ACO）是一种受自然界蚂蚁觅食行为的正反馈机制启发的仿生优化算法。在自然界中，蚂蚁通过在路径上释放信息素（pheromone）来标记行进路线，其他蚂蚁倾向于选择信息素浓度较高的路径，从而逐渐收敛到从巢穴到食物源的最短路径。</p>
+<p>应用</p>
+<p>旅行商问题（TSP）</p>
+<p>给定一组城市 C = {c_1, c_2, ..., c_n}，旅行商需要从某个城市出发，访问每个城市一次且仅一次，最终回到起点，使得总路程最短。</p>
+<p>状态转移概率</p>
+<p>假设蚂蚁种群的规模为 m ，城市的数量为 n ，城市 i 和城市 j 之间的距离记为 d_{i,j} 。</p>
+<p>在初始情况下，所有蚂蚁分布在各个城市里，各个城市连接路径上的信息素浓度都相同，设为 \tau_{init}，即有：</p>
+<p>\tau_{i,j}(0)=\tau_{init}</p>
+<p>蚂蚁 k 从城市 i 移动到城市 j 的概率为：</p>
+<p>P_{ij}^{(k)}(t) = 
+\begin{cases}
+\displaystyle \frac{[\tau_{ij}(t)]^{\alpha} \cdot [\eta_{ij}]^{\beta}}{\sum\limits_{l \in \text{allowed}<em il="il">k} [\tau</em>_k \
+0, &amp; \text{otherwise}
+\end{cases}}(t)]^{\alpha} \cdot [\eta_{il}]^{\beta}}, &amp; \text{if } j \in \text{allowed</p>
+<p>其中：</p>
+<ul>
+<li>\tau_{ij}(t)：在时刻 t 时城市 i 到 j 之间的路径 (i,j) 上的信息素浓度；</li>
+<li>\eta_{ij} = \frac{1}{d_{ij}}：启发函数，通常为城市间距离的倒数；</li>
+<li>\alpha：控制信息素的重要程度；当 \alpha=0 时，转移概率只跟距离有关，算法退化成关于路径距离的贪婪算法。</li>
+<li>\beta：控制启发函数的重要程度；当 \beta=0 时，则会退化成随机搜索算法。</li>
+<li>\text{allowed}_k：蚂蚁 k 尚未访问过的城市集合，每次到达一个城市时进行更新。</li>
+</ul>
+<p>确定各个城市的转移概率后，我们就可以使用轮盘赌算法来依照概率选择一个城市作为目的地。</p>
+<p>注意：如果 \alpha 过分大，启发值几乎不起作用，并且一开始所有路径信息素初值一致，该算法就相当于蚂蚁随机走动。如果 \beta 值（启发值重要程度）过分大，则蚂蚁的每次选择几乎根据路径长度决定，该算法就相当于贪心策略，很难搜索到全局最优解。通常我们将 \alpha 设置为 1 而将 \beta  设置成 6。</p>
+<p>信息素更新公式</p>
+<p>在每一轮迭代结束后，信息素会进行挥发与增强。</p>
+<p>\tau_{ij}(t+1) = (1 - \rho) \cdot \tau_{ij}(t) + \sum_{k=1}^{m} \Delta \tau_{ij}^{(k)}(t)</p>
+<p>其中：</p>
+<ul>
+<li>\rho \in (0,1)：信息素挥发系数；</li>
+<li>\Delta \tau_{ij}^{(k)}(t)：蚂蚁 k 在本轮内在边 (i,j) 上留下的信息素增量。</li>
+</ul>
+<p>信息素增量有多种定义。最基础的定义为：</p>
+<p>\Delta \tau_{ij}^{(k)}(t) = 
+\begin{cases}
+\displaystyle \frac{Q}{L_k}, &amp; \text{若蚂蚁 } k \text{ 走过边 } (i,j) \
+0, &amp; \text{否则}
+\end{cases}</p>
+<p>其中：</p>
+<ul>
+<li>Q：常数，控制信息素的总量；</li>
+<li>L_k：蚂蚁 k 经过的路径总长度。</li>
+</ul>
+<p>假设总共有 n 个城市，蚂蚁 k 构建的路径为：</p>
+<p>P_k = (c_1, c_2, ..., c_n, c_1)</p>
+<p>其中 c_1 是起始城市，最终回到它。路径总长度 L_k  是：</p>
+<p>L_k = \sum_{i=1}^{n} d_{c_i, c_{i+1}}, \quad \text{其中 } c_{n+1} = c_1</p>
+<p>注意：虽然在时刻 t 蚂蚁 k 未完成周游，但是信息素的更新并不是即刻的，而是滞后到所有蚂蚁完成一趟周游后（即得到完整的 P_k）才执行的。并且并不是在每次蚂蚁转移后都立即对路径上的信息素进行更新，而是在所有蚂蚁都完成一遍对所有城市的访问后，才统一更新各路径信息素的浓度。</p>
+<p>各路径上的信息素可以被记录在一个矩阵中。</p>
+<p>完整流程</p>
+<p>超参数设置中，蚁群数量最好为目标城市数量的 1.5 倍，信息素挥发因子 ρ 一般设置在 [0.2,0.5] ，迭代次数一般设置在 [100,500] ，在 scikit-opt 库中，信息素常量 Q 的值被默认为 1。</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="../images/author.jpg" alt="小洋芋">
           </span>
         
       </nav>
