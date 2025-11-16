@@ -5,7 +5,7 @@ date:
     created: 2024-06-18 # 创建时间
     updated: 2024-06-18 # 更新时间
 authors: # 这是作者信息，可以添加多个作者
-    - LogDancer
+    - 小洋芋
 categories: # 这里是分类，将会出现在博客的【分类】栏中
     - Hello
     - World
